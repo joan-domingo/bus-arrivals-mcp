@@ -42,6 +42,10 @@ apiBasedTools(server, stopsMapping);
 const app = express();
 let transport = null;
 
+app.get('/', (req, res) => {
+  res.status(200).send('OK');
+});
+
 app.get("/sse", async (req, res) => {
   console.log("Nova connexió SSE");
   transport = new SSEServerTransport("/messages", res);
@@ -58,8 +62,10 @@ app.post("/messages", async (req, res) => {
 });
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Servidor MCP escortant a http://localhost:${PORT}`);
-  console.log(`Endpoint SSE: http://localhost:${PORT}/sse`);
-  console.log(`Endpoint missatges: http://localhost:${PORT}/messages`);
+
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Servidor MCP escortant a http://0.0.0.0:${PORT}`);
+  console.log(`Endpoint SSE: http://0.0.0.0:${PORT}/sse`);
+  console.log(`Endpoint missatges: http://0.0.0.0:${PORT}/messages`);
+  console.log(`Health check: http://0.0.0.0:${PORT}/`);
 });
