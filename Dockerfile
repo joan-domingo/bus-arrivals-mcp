@@ -7,9 +7,9 @@ RUN npm install --production
 
 COPY . .
 
-EXPOSE 3000
+EXPOSE 3001
 
 ENV NODE_ENV=production
-ENV PORT=3000
+ENV PORT=3001
 
-CMD ["node", "server-sse.js"]
+CMD ["node", "main.js"]

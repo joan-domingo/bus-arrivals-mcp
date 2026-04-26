@@ -2,10 +2,9 @@
   "name": "bus-mcp",
   "version": "1.0.0",
   "description": "",
-  "main": "server-sse.js",
+  "main": "main.js",
   "scripts": {
     "start": "node main.js",
-    "start-sse": "node server-sse.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
